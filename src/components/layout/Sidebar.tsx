@@ -13,9 +13,6 @@ import { cn } from '@/lib/utils';
 const navItems = [
   { path: '/', icon: LayoutDashboard, label: 'Dashboard' },
   { path: '/alerts', icon: AlertTriangle, label: 'Live Alerts' },
-  { path: '/detections', icon: Shield, label: 'Detections' },
-  { path: '/time-manipulation', icon: Clock, label: 'Time & Tampering' },
-  { path: '/simulations', icon: Play, label: 'Simulations' },
 ];
 
 export function Sidebar() {
