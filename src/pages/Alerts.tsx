@@ -13,11 +13,10 @@ const Alerts = () => {
       
       <div className="flex-1 p-6 space-y-6 overflow-auto">
         {/* Alert Summary */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <AlertCounter label="Critical" count={mockAlertCounts.critical} severity="critical" delay={0} />
           <AlertCounter label="Alerts" count={mockAlertCounts.alert} severity="alert" delay={1} />
           <AlertCounter label="Warnings" count={mockAlertCounts.warning} severity="warning" delay={2} />
-          <AlertCounter label="Info" count={mockAlertCounts.info} severity="info" delay={3} />
         </div>
 
         {/* Alerts Table */}

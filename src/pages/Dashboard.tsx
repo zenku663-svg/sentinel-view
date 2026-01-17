@@ -24,19 +24,16 @@ const Dashboard = () => {
           <AlertCounter label="Warnings" count={mockAlertCounts.warning} severity="warning" delay={3} />
         </div>
 
-        {/* Info Counter */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-          <AlertCounter label="Info" count={mockAlertCounts.info} severity="info" delay={4} />
-          <div className="lg:col-span-3 stat-card">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">Total Events (24h)</p>
-                <p className="text-3xl font-bold font-mono text-foreground">{mockAlertCounts.total}</p>
-              </div>
-              <div className="text-right">
-                <p className="text-xs text-muted-foreground">Detection Engine</p>
-                <p className="text-sm font-semibold text-severity-success">Active</p>
-              </div>
+        {/* Total Events */}
+        <div className="stat-card">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">Total Events (24h)</p>
+              <p className="text-3xl font-bold font-mono text-foreground">{mockAlertCounts.total}</p>
+            </div>
+            <div className="text-right">
+              <p className="text-xs text-muted-foreground">Detection Engine</p>
+              <p className="text-sm font-semibold text-severity-success">Active</p>
             </div>
           </div>
         </div>

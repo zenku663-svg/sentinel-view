@@ -6,9 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import Dashboard from "./pages/Dashboard";
 import Alerts from "./pages/Alerts";
-import Detections from "./pages/Detections";
-import TimeManipulation from "./pages/TimeManipulation";
-import Simulations from "./pages/Simulations";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,9 +20,6 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/alerts" element={<Alerts />} />
-            <Route path="/detections" element={<Detections />} />
-            <Route path="/time-manipulation" element={<TimeManipulation />} />
-            <Route path="/simulations" element={<Simulations />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
