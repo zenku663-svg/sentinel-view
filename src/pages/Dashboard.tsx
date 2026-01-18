@@ -1,9 +1,9 @@
 import { Header } from '@/components/layout/Header';
 import { SecurityPostureIndicator } from '@/components/dashboard/SecurityPostureIndicator';
 import { AlertCounter } from '@/components/dashboard/AlertCounter';
-import { DetectionTimeline } from '@/components/dashboard/DetectionTimeline';
+import { AlertsChart } from '@/components/dashboard/AlertsChart';
 import { RecentAlerts } from '@/components/dashboard/RecentAlerts';
-import { mockSecurityPosture, mockAlertCounts, mockTimelineEvents, mockAlerts } from '@/data/mockData';
+import { mockSecurityPosture, mockAlertCounts, mockAlerts } from '@/data/mockData';
 
 const Dashboard = () => {
   return (
@@ -38,9 +38,9 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Bottom Section: Timeline + Recent Alerts */}
+        {/* Bottom Section: Chart + Recent Alerts */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <DetectionTimeline events={mockTimelineEvents} />
+          <AlertsChart />
           <RecentAlerts alerts={mockAlerts} />
         </div>
       </div>
