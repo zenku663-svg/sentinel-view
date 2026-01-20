@@ -1,14 +1,15 @@
-import { Bell, Search, RefreshCw } from 'lucide-react';
+import { ReactNode } from 'react';
+import { Bell } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { mockAlertCounts } from '@/data/mockData';
 
 interface HeaderProps {
   title: string;
   subtitle?: string;
+  rightContent?: ReactNode;
 }
 
-export function Header({ title, subtitle }: HeaderProps) {
+export function Header({ title, subtitle, rightContent }: HeaderProps) {
   return (
     <header className="h-16 px-6 border-b border-border flex items-center justify-between bg-card/50">
       <div>
@@ -19,19 +20,8 @@ export function Header({ title, subtitle }: HeaderProps) {
       </div>
 
       <div className="flex items-center gap-4">
-        {/* Search */}
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-          <Input
-            placeholder="Search alerts, logs..."
-            className="w-64 pl-9 bg-secondary border-border text-sm"
-          />
-        </div>
-
-        {/* Refresh */}
-        <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
-          <RefreshCw className="w-4 h-4" />
-        </Button>
+        {/* Custom right content (refresh controls, etc.) */}
+        {rightContent}
 
         {/* Notifications */}
         <Button variant="ghost" size="icon" className="relative text-muted-foreground hover:text-foreground">
