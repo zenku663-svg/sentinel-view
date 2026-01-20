@@ -1,16 +1,50 @@
+import { useState, useCallback } from 'react';
 import { Header } from '@/components/layout/Header';
 import { SecurityPostureIndicator } from '@/components/dashboard/SecurityPostureIndicator';
 import { AlertCounter } from '@/components/dashboard/AlertCounter';
 import { AlertsChart } from '@/components/dashboard/AlertsChart';
 import { RecentAlerts } from '@/components/dashboard/RecentAlerts';
+import { RefreshControl } from '@/components/layout/RefreshControl';
+import { useAutoRefresh } from '@/hooks/useAutoRefresh';
 import { mockSecurityPosture, mockAlertCounts, mockAlerts } from '@/data/mockData';
 
 const Dashboard = () => {
+  const [lastUpdate, setLastUpdate] = useState(new Date());
+
+  const handleRefresh = useCallback(() => {
+    // In production, this would fetch data from backend
+    setLastUpdate(new Date());
+    console.log('Dashboard refreshed');
+  }, []);
+
+  const {
+    interval,
+    setInterval,
+    isEnabled,
+    toggle,
+    lastRefresh,
+    isRefreshing,
+    refresh,
+    countdown,
+  } = useAutoRefresh({ defaultInterval: 30, onRefresh: handleRefresh });
+
   return (
     <div className="flex flex-col h-full">
       <Header 
         title="Security Dashboard" 
-        subtitle={`Last updated: ${new Date().toLocaleTimeString()}`} 
+        subtitle={`Last updated: ${lastUpdate.toLocaleTimeString()}`}
+        rightContent={
+          <RefreshControl
+            isEnabled={isEnabled}
+            interval={interval}
+            countdown={countdown}
+            isRefreshing={isRefreshing}
+            lastRefresh={lastRefresh}
+            onToggle={toggle}
+            onIntervalChange={setInterval}
+            onRefresh={refresh}
+          />
+        }
       />
       
       <div className="flex-1 p-6 space-y-6 overflow-auto">

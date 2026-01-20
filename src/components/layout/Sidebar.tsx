@@ -3,9 +3,7 @@ import {
   LayoutDashboard, 
   AlertTriangle, 
   FileText, 
-  Shield, 
-  Clock, 
-  Play,
+  Search,
   Activity
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -13,6 +11,8 @@ import { cn } from '@/lib/utils';
 const navItems = [
   { path: '/', icon: LayoutDashboard, label: 'Dashboard' },
   { path: '/alerts', icon: AlertTriangle, label: 'Live Alerts' },
+  { path: '/logs', icon: FileText, label: 'Logs' },
+  { path: '/search', icon: Search, label: 'Search' },
 ];
 
 export function Sidebar() {
